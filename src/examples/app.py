@@ -48,19 +48,13 @@ class TututmApp(appier.WebApp):
 
     @appier.route("/", "GET")
     def index(self):
-        return self.tickets()
+        return self.services()
 
     @appier.route("/services", "GET")
     def services(self):
         api = self.get_api()
         services = api.list_services()
         return services
-
-    @appier.route("/ticket_fields", "GET")
-    def ticket_fields(self):
-        api = self.get_api()
-        ticket_fields = api.list_ticket_fields()
-        return ticket_fields
 
     def get_api(self):
         api = base.get_api()

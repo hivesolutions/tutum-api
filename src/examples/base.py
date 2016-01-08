@@ -43,7 +43,6 @@ import tutum
 
 def get_api():
     return tutum.Api(
-        domain = appier.conf("TT_DOMAIN"),
         username = appier.conf("TT_USERNAME"),
         token = appier.conf("TT_PASSWORD")
     )
