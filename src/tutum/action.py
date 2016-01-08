@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Hive Tutum API. If not, see <http://www.gnu.org/licenses/>.
 
+__author__ = "João Magalhães <joamag@hive.pt>"
+""" The author(s) of the module """
+
 __version__ = "1.0.0"
 """ The version of the module """
 
@@ -34,14 +37,15 @@ __copyright__ = "Copyright (c) 2008-2015 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-from . import action
-from . import base
-from . import container
-from . import node
-from . import service
+class ActionApi(object):
 
-from .action import ActionApi
-from .base import BASE_URL, Api
-from .container import ContainerApi
-from .node import NodeApi
-from .service import ServiceApi
+    def list_actions(self):
+        url = self.base_url + "action/"
+        contents = self.get(url)
+        actions = contents["objects"]
+        return actions
+
+    def get_action(self, uuid):
+        url = self.base_url + "action/%s/" % uuid
+        contents = self.get(url)
+        return contents

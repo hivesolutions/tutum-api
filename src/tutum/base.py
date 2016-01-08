@@ -42,6 +42,7 @@ import base64
 import appier
 
 from . import node
+from . import action
 from . import service
 from . import container
 
@@ -52,6 +53,7 @@ base url value is provided to the constructor """
 class Api(
     appier.Api,
     node.NodeApi,
+    action.ActionApi,
     service.ServiceApi,
     container.ContainerApi
 ):

@@ -86,6 +86,18 @@ class TututmApp(appier.WebApp):
         container = api.get_container(uuid)
         return container
 
+    @appier.route("/actions", "GET")
+    def actions(self):
+        api = self.get_api()
+        actions = api.list_actions()
+        return actions
+
+    @appier.route("/actions/<str:uuid>", "GET")
+    def action(self, uuid):
+        api = self.get_api()
+        action = api.get_action(uuid)
+        return action
+
     def get_api(self):
         api = base.get_api()
         return api
