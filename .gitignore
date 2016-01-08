@@ -1,0 +1,7 @@
+*.pyc
+*.debug
+
+session.shelve*
+
+/dist
+/src/tutum_api.egg-info
