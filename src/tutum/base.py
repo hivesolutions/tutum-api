@@ -43,6 +43,7 @@ import appier
 
 from . import node
 from . import service
+from . import container
 
 BASE_URL = "https://dashboard.tutum.co/api/v1/"
 """ The default base url to be used when no other
@@ -51,7 +52,8 @@ base url value is provided to the constructor """
 class Api(
     appier.Api,
     node.NodeApi,
-    service.ServiceApi
+    service.ServiceApi,
+    container.ContainerApi
 ):
 
     def __init__(self, *args, **kwargs):

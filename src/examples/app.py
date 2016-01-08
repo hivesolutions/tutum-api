@@ -69,10 +69,22 @@ class TututmApp(appier.WebApp):
         return nodes
 
     @appier.route("/nodes/<str:uuid>", "GET")
-    def _node(self, uuid):
+    def node(self, uuid):
         api = self.get_api()
         node = api.get_node(uuid)
         return node
+
+    @appier.route("/containers", "GET")
+    def containers(self):
+        api = self.get_api()
+        containers = api.list_containers()
+        return containers
+
+    @appier.route("/containers/<str:uuid>", "GET")
+    def container(self, uuid):
+        api = self.get_api()
+        container = api.get_container(uuid)
+        return container
 
     def get_api(self):
         api = base.get_api()
