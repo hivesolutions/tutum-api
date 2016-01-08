@@ -35,11 +35,7 @@ __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
 from . import base
-from . import ticket
-from . import ticket_field
-from . import user
+from . import service
 
-from .base import DOMAIN, Api
-from .ticket import TicketApi
-from .ticket_field import TicketFieldApi
-from .user import UserApi
+from .base import BASE_URL, Api
+from .service import ServiceApi

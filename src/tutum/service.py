@@ -40,6 +40,7 @@ __license__ = "GNU General Public License (GPL), Version 3"
 class ServiceApi(object):
 
     def list_services(self):
-        url = self.base_url + "service"
+        url = self.base_url + "service/"
         contents = self.get(url)
-        return contents
+        services = contents["objects"]
+        return services
