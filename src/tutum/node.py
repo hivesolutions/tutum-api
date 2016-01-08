@@ -49,3 +49,8 @@ class NodeApi(object):
         url = self.base_url + "node/%s/" % uuid
         contents = self.get(url)
         return contents
+
+    def check_node(self, uuid):
+        url = self.base_url + "node/%s/health-check/" % uuid
+        contents = self.post(url)
+        return contents
