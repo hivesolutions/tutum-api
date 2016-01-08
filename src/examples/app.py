@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Hive Tutum API. If not, see <http://www.gnu.org/licenses/>.
 
+__author__ = "João Magalhães <joamag@hive.pt>"
+""" The author(s) of the module """
+
 __version__ = "1.0.0"
 """ The version of the module """
 
@@ -34,8 +37,35 @@ __copyright__ = "Copyright (c) 2008-2015 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-from . import app
+import appier
+
 from . import base
 
-from .app import TututmApp
-from .base import get_api
+class TututmApp(appier.WebApp):
+
+    def __init__(self):
+        appier.WebApp.__init__(self, name = "tutum")
+
+    @appier.route("/", "GET")
+    def index(self):
+        return self.tickets()
+
+    @appier.route("/services", "GET")
+    def services(self):
+        api = self.get_api()
+        services = api.list_services()
+        return services
+
+    @appier.route("/ticket_fields", "GET")
+    def ticket_fields(self):
+        api = self.get_api()
+        ticket_fields = api.list_ticket_fields()
+        return ticket_fields
+
+    def get_api(self):
+        api = base.get_api()
+        return api
+
+if __name__ == "__main__":
+    app = TututmApp()
+    app.serve()
