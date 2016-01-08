@@ -41,6 +41,7 @@ import base64
 
 import appier
 
+from . import node
 from . import service
 
 BASE_URL = "https://dashboard.tutum.co/api/v1/"
@@ -49,6 +50,7 @@ base url value is provided to the constructor """
 
 class Api(
     appier.Api,
+    node.NodeApi,
     service.ServiceApi
 ):
 

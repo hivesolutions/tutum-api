@@ -37,47 +37,15 @@ __copyright__ = "Copyright (c) 2008-2015 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-import appier
+class NodeApi(object):
 
-from . import base
-
-class TututmApp(appier.WebApp):
-
-    def __init__(self):
-        appier.WebApp.__init__(self, name = "tutum")
-
-    @appier.route("/", "GET")
-    def index(self):
-        return self.services()
-
-    @appier.route("/services", "GET")
-    def services(self):
-        api = self.get_api()
-        services = api.list_services()
+    def list_nodes(self):
+        url = self.base_url + "node/"
+        contents = self.get(url)
+        services = contents["objects"]
         return services
 
-    @appier.route("/services/<str:uuid>", "GET")
-    def _service(self, uuid):
-        api = self.get_api()
-        service = api.get_service(uuid)
-        return service
-
-    @appier.route("/nodes", "GET")
-    def nodes(self):
-        api = self.get_api()
-        nodes = api.list_nodes()
-        return nodes
-
-    @appier.route("/nodes/<str:uuid>", "GET")
-    def _node(self, uuid):
-        api = self.get_api()
-        node = api.get_node(uuid)
-        return node
-
-    def get_api(self):
-        api = base.get_api()
-        return api
-
-if __name__ == "__main__":
-    app = TututmApp()
-    app.serve()
+    def get_node(self, uuid):
+        url = self.base_url + "node/%s/" % uuid
+        contents = self.get(url)
+        return contents
