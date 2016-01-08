@@ -56,6 +56,12 @@ class TututmApp(appier.WebApp):
         services = api.list_services()
         return services
 
+    @appier.route("/services/<str:uuid>", "GET")
+    def _service(self, uuid):
+        api = self.get_api()
+        service = api.get_service(uuid)
+        return service
+
     def get_api(self):
         api = base.get_api()
         return api

@@ -44,3 +44,8 @@ class ServiceApi(object):
         contents = self.get(url)
         services = contents["objects"]
         return services
+
+    def get_service(self, uuid):
+        url = self.base_url + "service/%s/" % uuid
+        contents = self.get(url)
+        return contents
