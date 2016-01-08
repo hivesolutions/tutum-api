@@ -74,6 +74,12 @@ class TututmApp(appier.WebApp):
         node = api.get_node(uuid)
         return node
 
+    @appier.route("/nodes/<str:uuid>/check", "GET")
+    def check_node(self, uuid):
+        api = self.get_api()
+        node = api.check_node(uuid)
+        return node
+
     @appier.route("/containers", "GET")
     def containers(self):
         api = self.get_api()
