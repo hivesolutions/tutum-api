@@ -39,10 +39,10 @@ __license__ = "GNU General Public License (GPL), Version 3"
 
 import appier
 
-import zendesk
+import tutum
 
 def get_api():
-    return zendesk.Api(
+    return tutum.Api(
         domain = appier.conf("TT_DOMAIN"),
         username = appier.conf("TT_USERNAME"),
         token = appier.conf("TT_PASSWORD")

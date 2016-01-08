@@ -41,27 +41,24 @@ import base64
 
 import appier
 
-from . import user
-from . import ticket
-from . import ticket_field
+from . import service
 
-DOMAIN = "https://www.googleapis.com/"
+BASE_URL = "https://dashboard.tutum.co/api/v1/"
 """ The default base url to be used when no other
 base url value is provided to the constructor """
 
 class Api(
     appier.Api,
-    user.UserApi,
-    ticket.TicketApi,
-    ticket_field.TicketFieldApi
+    service.ServiceApi
 ):
 
     def __init__(self, *args, **kwargs):
         appier.Api.__init__(self, *args, **kwargs)
-        self.domain = appier.conf("TT_DOMAIN", DOMAIN)
         self.username = appier.conf("TT_USERNAME", None)
         self.password = appier.conf("TT_PASSWORD", None)
-        self.base_url = "https://%s/api/v2/" % self.domain
+        self.base_url = kwargs.get("base_url", BASE_URL)
+        self.username = kwargs.get("username", self.username)
+        self.password = kwargs.get("password", self.password)
 
     def build(
         self,
