@@ -43,8 +43,12 @@ from . import base
 
 class TututmApp(appier.WebApp):
 
-    def __init__(self):
-        appier.WebApp.__init__(self, name = "tutum")
+    def __init__(self, *args, **kwargs):
+        appier.WebApp.__init__(
+            self,
+            name = "tutum",
+            *args, **kwargs
+        )
 
     @appier.route("/", "GET")
     def index(self):
