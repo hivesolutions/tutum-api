@@ -115,3 +115,5 @@ class TututmApp(appier.WebApp):
 if __name__ == "__main__":
     app = TututmApp()
     app.serve()
+else:
+    __path__ = []
