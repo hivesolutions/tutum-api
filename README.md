@@ -1,3 +1,3 @@
-# [Tutum API](http://tutum_api.hive.pt)
+# [Tutum API](http://tutum-api.hive.pt)
 
 Python Tutum API client.
