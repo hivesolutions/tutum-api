@@ -48,7 +48,7 @@ setuptools.setup(
     description = "Tutum API Client",
     license = "Apache License, Version 2.0",
     keywords = "tutum api",
-    url = "http://tutum_api.hive.pt",
+    url = "http://tutum-api.hive.pt",
     zip_safe = False,
     packages = [
         "tutum"
