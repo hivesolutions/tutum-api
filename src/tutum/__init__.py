@@ -40,8 +40,8 @@ from . import container
 from . import node
 from . import service
 
-from .action import ActionApi
-from .base import BASE_URL, Api
-from .container import ContainerApi
-from .node import NodeApi
-from .service import ServiceApi
+from .action import ActionAPI
+from .base import BASE_URL, API
+from .container import ContainerAPI
+from .node import NodeAPI
+from .service import ServiceAPI

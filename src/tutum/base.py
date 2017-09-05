@@ -50,16 +50,16 @@ BASE_URL = "https://dashboard.tutum.co/api/v1/"
 """ The default base url to be used when no other
 base url value is provided to the constructor """
 
-class Api(
-    appier.Api,
-    node.NodeApi,
-    action.ActionApi,
-    service.ServiceApi,
-    container.ContainerApi
+class API(
+    appier.API,
+    node.NodeAPI,
+    action.ActionAPI,
+    service.ServiceAPI,
+    container.ContainerAPI
 ):
 
     def __init__(self, *args, **kwargs):
-        appier.Api.__init__(self, *args, **kwargs)
+        appier.API.__init__(self, *args, **kwargs)
         self.username = appier.conf("TT_USERNAME", None)
         self.password = appier.conf("TT_PASSWORD", None)
         self.base_url = kwargs.get("base_url", BASE_URL)

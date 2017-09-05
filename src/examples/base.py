@@ -42,7 +42,7 @@ import appier
 import tutum
 
 def get_api():
-    return tutum.Api(
+    return tutum.API(
         username = appier.conf("TT_USERNAME"),
         token = appier.conf("TT_PASSWORD")
     )
