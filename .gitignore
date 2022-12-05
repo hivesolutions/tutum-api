@@ -4,4 +4,4 @@
 session.shelve*
 
 /dist
-/src/tutum-api.egg-info
+/src/tutum_api.egg-info
