@@ -19,25 +19,8 @@
 # You should have received a copy of the Apache License along with
 # Hive Tutum API. If not, see <http://www.apache.org/licenses/>.
 
-__author__ = "João Magalhães <joamag@hive.pt>"
-""" The author(s) of the module """
-
 __copyright__ = "Copyright (c) 2008-2024 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
-
-
-class ContainerAPI(object):
-
-    def list_containers(self):
-        url = self.base_url + "container/"
-        contents = self.get(url)
-        containers = contents["objects"]
-        return containers
-
-    def get_container(self, uuid):
-        url = self.base_url + "container/%s/" % uuid
-        contents = self.get(url)
-        return contents

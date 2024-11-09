@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hive Tutum API
-# Copyright (c) 2008-2020 Hive Solutions Lda.
+# Copyright (c) 2008-2024 Hive Solutions Lda.
 #
 # This file is part of Hive Tutum API.
 #
@@ -22,16 +22,7 @@
 __author__ = "João Magalhães <joamag@hive.pt>"
 """ The author(s) of the module """
 
-__version__ = "1.0.0"
-""" The version of the module """
-
-__revision__ = "$LastChangedRevision$"
-""" The revision number of the module """
-
-__date__ = "$LastChangedDate$"
-""" The last change date of the module """
-
-__copyright__ = "Copyright (c) 2008-2020 Hive Solutions Lda."
+__copyright__ = "Copyright (c) 2008-2024 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
@@ -50,12 +41,13 @@ BASE_URL = "https://dashboard.tutum.co/api/v1/"
 """ The default base URL to be used when no other
 base URL value is provided to the constructor """
 
+
 class API(
     appier.API,
     node.NodeAPI,
     action.ActionAPI,
     service.ServiceAPI,
-    container.ContainerAPI
+    container.ContainerAPI,
 ):
 
     def __init__(self, *args, **kwargs):
@@ -70,19 +62,21 @@ class API(
         self,
         method,
         url,
-        data = None,
-        data_j = None,
-        data_m = None,
-        headers = None,
-        params = None,
-        mime = None,
-        kwargs = None
+        data=None,
+        data_j=None,
+        data_m=None,
+        headers=None,
+        params=None,
+        mime=None,
+        kwargs=None,
     ):
         auth = kwargs.pop("auth", True)
-        if auth: headers["Authorization"] = self.get_authorization()
+        if auth:
+            headers["Authorization"] = self.get_authorization()
 
     def get_authorization(self):
-        if not self.username or not self.password: None
+        if not self.username or not self.password:
+            None
         payload = "%s:%s" % (self.username, self.password)
         payload = appier.legacy.bytes(payload)
         authorization = base64.b64encode(payload)

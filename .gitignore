@@ -3,5 +3,7 @@
 
 session.shelve*
 
+/.venv
+
 /dist
 /src/tutum_api.egg-info

@@ -28,16 +28,10 @@ __copyright__ = "Copyright (c) 2008-2024 Hive Solutions Lda."
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
 
+import unittest
 
-class ContainerAPI(object):
 
-    def list_containers(self):
-        url = self.base_url + "container/"
-        contents = self.get(url)
-        containers = contents["objects"]
-        return containers
+class BaseTest(unittest.TestCase):
 
-    def get_container(self, uuid):
-        url = self.base_url + "container/%s/" % uuid
-        contents = self.get(url)
-        return contents
+    def test_basic(self):
+        self.assertEqual(1 + 1, 2)
